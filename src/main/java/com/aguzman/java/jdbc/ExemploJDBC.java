@@ -12,7 +12,9 @@ public class ExemploJDBC {
         try (Connection conn = ConectionDB.getInstance()){
 
             Repository<Produto> repositorio = new ProductRepositoryimpl();
-            repositorio.listar().forEach(p -> System.out.println(p.getNome()));
+            repositorio.listar().forEach(System.out::println);
+
+            System.out.println(repositorio.porId(1L));
 
         } catch (SQLException e) {
             e.printStackTrace();
