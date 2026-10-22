@@ -7,6 +7,7 @@ public class Produto {
     private String nome;
     private Integer preco;
     private Date data_validade;
+    private Categoria categoria;
 
     public Produto() {
     }
@@ -16,17 +17,6 @@ public class Produto {
         this.nome = nome;
         this.preco = preco;
         this.data_validade = data_validade;
-    }
-
-    @Override
-    public String toString() {
-        return id +
-                " | " +
-                nome + " | " +
-                " | " +
-                preco +
-                " | " +
-                data_validade;
     }
 
 
@@ -62,6 +52,25 @@ public class Produto {
         this.data_validade = dataValidade;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return id +
+                " | " +
+                nome + " | " +
+                " | " +
+                preco +
+                " | " +
+                data_validade +
+                " | " + categoria.getNome();
+    }
 }
 
 
