@@ -1,5 +1,6 @@
 package com.aguzman.java.jdbc;
 
+import com.aguzman.java.jdbc.models.Categoria;
 import com.aguzman.java.jdbc.models.Produto;
 import com.aguzman.java.jdbc.repository.ProductRepositoryimpl;
 import com.aguzman.java.jdbc.repository.Repository;
@@ -22,9 +23,15 @@ public class ExemploJDBC {
 
             System.out.println("============== adicionar novo produto ==============");
             Produto produto = new Produto();
-            produto.setNome("Teclado Mecanico");
-            produto.setPreco(500);
+            produto.setNome("Teclado RED DRAGON Mecanico");
+            produto.setPreco(450);
             produto.setData_validade(new Date());
+
+            Categoria categoria = new Categoria();
+            categoria.setId(3L);
+            produto.setCategoria(categoria);
+
+
             repositorio.guardar(produto);
             System.out.println("Produto adiconado com exito");
             repositorio.listar().forEach(System.out::println);
