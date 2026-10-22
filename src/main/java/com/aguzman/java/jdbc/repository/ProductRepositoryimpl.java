@@ -74,7 +74,7 @@ public class ProductRepositoryimpl implements Repository<Produto> {
 
     @Override
     public void delete(Long id) {
-        try(PreparedStatement stmt = getConnection().prepareStatement("DELETE FROM produto WHERE id=?")) {
+        try(PreparedStatement stmt = getConnection().prepareStatement("DELETE FROM produtos WHERE id=?")) {
             stmt.setLong(1, id );
             stmt.executeUpdate();
 
