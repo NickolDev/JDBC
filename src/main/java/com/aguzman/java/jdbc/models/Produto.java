@@ -18,6 +18,18 @@ public class Produto {
         this.data_validade = data_validade;
     }
 
+    @Override
+    public String toString() {
+        return id +
+                " | " +
+                nome + " | " +
+                " | " +
+                preco +
+                " | " +
+                data_validade;
+    }
+
+
     public Long getId() {
         return id;
     }
