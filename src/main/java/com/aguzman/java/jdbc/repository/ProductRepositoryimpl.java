@@ -1,6 +1,6 @@
 package com.aguzman.java.jdbc.repository;
 
-import com.aguzman.java.jdbc.models.Producto;
+import com.aguzman.java.jdbc.models.Produto;
 import com.aguzman.java.jdbc.util.ConectionDB;
 
 import java.sql.Connection;
@@ -10,36 +10,36 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductRepositoryimpl implements Repository<Producto> {
+public class ProductRepositoryimpl implements Repository<Produto> {
 
     private Connection getConnection() throws SQLException {
         return ConectionDB.getInstance();
     }
 
     @Override
-    public List<Producto> listar() throws SQLException {
-        List<Producto> productos = new ArrayList<>();
+    public List<Produto> listar() throws SQLException {
+        List<Produto> produtos = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM productos")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM produtos")) {
             while (rs.next()) {
-                Producto p = new Producto();
+                Produto p = new Produto();
                 p.setId(rs.getLong("id"));
-                p.setNombre(rs.getString("nombre"));
-                p.setPrecio(rs.getInt("precio"));
-                p.setFechaRegistro(rs.getDate("fecha_registro"));
-                productos.add(p);
+                p.setNome(rs.getString("nome"));
+                p.setPreco(rs.getInt("preco"));
+                p.setData_validade(rs.getDate("data_validade"));
+                produtos.add(p);
             }
         }
-        return productos;
+        return produtos;
     }
 
     @Override
-    public Producto porId(Long id) {
+    public Produto porId(Long id) {
         return null;
     }
 
     @Override
-    public void guardar(Producto producto) {
+    public void guardar(Produto produto) {
 
     }
 
