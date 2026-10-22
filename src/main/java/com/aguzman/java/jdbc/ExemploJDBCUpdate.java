@@ -1,5 +1,6 @@
 package com.aguzman.java.jdbc;
 
+import com.aguzman.java.jdbc.models.Categoria;
 import com.aguzman.java.jdbc.models.Produto;
 import com.aguzman.java.jdbc.repository.ProductRepositoryimpl;
 import com.aguzman.java.jdbc.repository.Repository;
@@ -22,9 +23,12 @@ public class ExemploJDBCUpdate {
 
             System.out.println("============== editar produto ==============");
             Produto produto = new Produto();
-            produto.setId(3L);
+            produto.setId(5L);
             produto.setNome("Teclado Razer Mecanico");
             produto.setPreco(700);
+            Categoria categoria = new Categoria();
+            categoria.setId(2L);
+            produto.setCategoria(categoria);
             repositorio.guardar(produto);
             System.out.println("Produto atualizado com exito");
             repositorio.listar().forEach(System.out::println);
